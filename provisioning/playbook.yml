@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  sudo: yes
+  tasks:
+
+    - name: Update system
+      apt: update_cache="yes" upgrade="yes"
+
+    - name: Install developer tools
+      apt: state=present pkg={{ item }}
+      with_items:
+          - linux-headers-generic
+          - build-essential
+
