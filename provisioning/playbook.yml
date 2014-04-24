@@ -4,12 +4,12 @@
   sudo: yes
   tasks:
 
-    - name: Update system
-      apt: update_cache="yes" upgrade="yes"
+    - name: Update APT cache
+      apt: update_cache="yes"
 
-    - name: Install developer tools
+    - name: Install kernel developer tools
       apt: state=present pkg={{ item }}
       with_items:
-          - linux-source
+          - linux-headers-{{ ansible_kernel }}
           - build-essential
 
