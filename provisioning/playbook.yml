@@ -10,6 +10,6 @@
     - name: Install developer tools
       apt: state=present pkg={{ item }}
       with_items:
-          - linux-headers-generic
+          - linux-source
           - build-essential
 
